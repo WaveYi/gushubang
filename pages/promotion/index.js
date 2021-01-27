@@ -34,7 +34,7 @@ import {
 import { base64src } from '../../utils/base64src.js'
 import publicFun from '../../utils/public.js'
 // var requestUrl = 'http://192.168.1.2:8092'
-var requestUrl = 'https://h.3p3.top'
+var requestUrl = 'https://c.3p3.top'
 Page({
 
   /**
@@ -677,7 +677,7 @@ Page({
               //   url: res.result,
               //   name: "data"
               // });
-              let data = res.result.replace("https://h.3p3.top?data=","");
+              let data = res.result.replace("https://c.3p3.top?data=","");
               let dataStr = data.split('&')[0];
               console.log('扫码返回的参数2'+dataStr);
               addCouponAgentByScan({
@@ -774,7 +774,7 @@ Page({
         //       //   url: res.result,
         //       //   name: "data"
         //       // });
-        //       let data = res.result.replace("https://h.3p3.top?data=","");
+        //       let data = res.result.replace("https://c.3p3.top?data=","");
         //       let dataStr = data.split('&')[0];
         //       console.log('扫码返回的参数2'+dataStr);
         //       addCouponAgentByScan({

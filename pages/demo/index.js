@@ -123,7 +123,7 @@ Page({
       //解析url地址
       let newUrl = decodeURIComponent(options.q);
       console.log('----微信扫码接收的参数newUrl----'+newUrl);
-      data = newUrl.replace("https://h.3p3.top?data=","");
+      data = newUrl.replace("https://c.3p3.top?data=","");
       is_yqh = data.indexOf("IdKey");
       is_wx_scan = true;
       //获取对应number参数
@@ -131,13 +131,13 @@ Page({
       //   url: newUrl,
       //   name: "data"
       // });
-      // let data = res.result.replace("https://h.3p3.top?data=","");
+      // let data = res.result.replace("https://c.3p3.top?data=","");
       // console.log('----微信扫码接收的参数----'+newUrl); 
       console.log('---是否包含type---= '+is_yqh);
       console.log('----微信扫码接收的参数----'+data);
     }else{
       data = decodeURIComponent(wx.getStorageSync('params'));
-      data = data.replace("https://h.3p3.top?data=","");
+      data = data.replace("https://c.3p3.top?data=","");
       is_yqh = data.indexOf("IdKey");
       console.log('---是否包含type---= '+is_yqh)
       console.log('扫码接收的参数'+decodeURIComponent(data));
@@ -226,9 +226,9 @@ Page({
         console.log("----data1----"+data)
         let dataStr = data.split('&')[0];
         // if(is_wx_scan == true){
-        //   data = JSON.parse(data).url.replace("https://h.3p3.top?data=","");
+        //   data = JSON.parse(data).url.replace("https://c.3p3.top?data=","");
         // }else{
-        //   data = JSON.parse(data).url.replace("https://h.3p3.top?data=","");
+        //   data = JSON.parse(data).url.replace("https://c.3p3.top?data=","");
         // }
         console.log("----data2----"+dataStr)
         queryVideoUrl({
@@ -288,9 +288,9 @@ Page({
       if(is_yqh != -1){
         // 促销券视频
         // if(is_wx_scan == true){
-        //   data = JSON.parse(data).url.replace("https://h.3p3.top?data=","");
+        //   data = JSON.parse(data).url.replace("https://c.3p3.top?data=","");
         // }else{
-        //   data = JSON.parse(data).url.replace("https://h.3p3.top?data=","");
+        //   data = JSON.parse(data).url.replace("https://c.3p3.top?data=","");
         // }
         console.log("----data1----"+data)
         let dataStr = data.split('&')[0];

@@ -19,7 +19,7 @@ Page({
     is_edit: 0,//是否修改进来 0:不是  1:是
     items: [
       // {value: '0', name: '消费者'},
-      {value: '2', name: '农场经理', checked: 'true'},
+      {value: '2', name: '公司经理', checked: 'true'},
       {value: '3', name: '代理人'},
       {value: '4', name: '销售员'},
       {value: '7', name: '物流站点'},
@@ -32,7 +32,7 @@ Page({
     farms: [],
     is_form: 0,//个人中心申请角色：1
     logistics_index: null,
-    logisticsTypes: [{name: '农场封装站点'},{name: '农场装车站点'},{name: '农场中转站点'},{name: '农场散货站点'}]
+    logisticsTypes: [{name: '公司封装站点'},{name: '公司装车站点'},{name: '公司中转站点'},{name: '公司散货站点'}]
   },
 
   /**
@@ -146,7 +146,7 @@ Page({
     // }
     if(this.data.is_form == 1){
       if(this.data.farm_index == null){
-        publicFun.getToast('请选择农场');
+        publicFun.getToast('请选择公司');
         return;
       }
     }

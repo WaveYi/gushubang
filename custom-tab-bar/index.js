@@ -11,7 +11,7 @@ Component({
       "text": "公司"
     },{
       "pagePath": "/pages/huiyibang/houseList/index",
-      "text": "农场"
+      "text": "公司"
     },{
       "pagePath": "/pages/userInfo/index",
       "text": "我的"
@@ -26,7 +26,7 @@ Component({
     //   "text": "公司"
     // },{
     //   "pagePath": "/pages/huiyibang/houseList/index",
-    //   "text": "农场"
+    //   "text": "公司"
     // },{
     //   "pagePath": "/pages/userInfo/index",
     //   "text": "我的"
