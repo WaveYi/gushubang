@@ -6,7 +6,7 @@ import {
   get_company_info
 } from '../../../api/qqhh_user.js'
 import publicFun from '../../../utils/public.js'
-// var requestUrl = 'http://192.168.1.2:8092'
+// var requestUrl = 'http://192.168.1.2:8097'
 var requestUrl = 'https://c.3p3.top'
 Page({
 

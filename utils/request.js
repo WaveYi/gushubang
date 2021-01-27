@@ -15,8 +15,8 @@ function getToken() {
 }
 
 //url地址
-var requestUrl = 'http://192.168.1.2:8097';    //测试地址
-// var requestUrl = 'https://c.3p3.top';               //线上地址
+// var requestUrl = 'http://192.168.1.2:8097';    //测试地址
+var requestUrl = 'https://c.3p3.top';               //线上地址
 
 /*
 method 方法
