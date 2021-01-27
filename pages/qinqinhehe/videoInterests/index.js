@@ -252,7 +252,7 @@ Page({
         }
       })
     }else{
-      // 农场老板项目转移
+      // 公司老板项目转移
       transfer_company_code_type({
         oldTypeId: this.data.click_type_id,
         typeId: this.data.new_type_id,
@@ -415,7 +415,7 @@ Page({
       wx.scanCode({
         
         success (res) {
-		  let data = res.result.replace("https://h.3p3.top?data=","");
+		  let data = res.result.replace("https://c.3p3.top?data=","");
           let company_id = JSON.parse(data).bossUnionId;
           let userId = JSON.parse(data).userId;
           console.log("company_id----"+company_id);
@@ -472,7 +472,7 @@ Page({
       wx.scanCode({
         
         success (res) {
-		  let data = res.result.replace("https://h.3p3.top?data=","");
+		  let data = res.result.replace("https://c.3p3.top?data=","");
           let company_id = JSON.parse(data).bossUnionId;
           let userId = JSON.parse(data).userId;
           console.log("company_id----"+company_id);

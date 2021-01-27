@@ -10,7 +10,7 @@ import {
 import { base64src } from '../../utils/base64src.js'
 import publicFun from '../../utils/public.js'
 // var requestUrl = 'http://192.168.1.2:8092'
-var requestUrl = 'https://h.3p3.top'
+var requestUrl = 'https://c.3p3.top'
 Page({
 
   /**

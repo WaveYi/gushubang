@@ -5,5 +5,5 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "user-btn": "/components/user-btn"
   },
-  "navigationBarTitleText": "查看农场"
+  "navigationBarTitleText": "查看公司"
 }

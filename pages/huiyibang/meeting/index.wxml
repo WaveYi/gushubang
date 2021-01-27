@@ -1,7 +1,7 @@
 <!--pages/huiyibang/meeting/index.wxml-->
 <wxs src="../../../filter/status.wxs" module="status"></wxs>
 <view wx:if="{{room_id}}">
-  <van-button wx:if="{{identity==0}}" catch:click="deleteMeeting" class="clear_btn" color="#333333" type="primary" size="small">退出农场</van-button>
+  <van-button wx:if="{{identity==0}}" catch:click="deleteMeeting" class="clear_btn" color="#333333" type="primary" size="small">退出公司</van-button>
   <image class="back_img" src="{{back_img}}" mode="aspectFill"></image>
   <view class="meeting_box">
     <view class="meetimg_item" wx:for="{{meetings}}" wx:key="index" bindtap="clickMeetingItem" data-index="{{index}}">
@@ -77,4 +77,4 @@
   </van-popup> -->
 </view>
 
-<view class="no_house_txt" wx:else>暂无农场</view>
+<view class="no_house_txt" wx:else>暂无公司</view>

@@ -1,4 +1,4 @@
-<!-- <van-nav-bar title="农产品溯源" custom-class="navBar" fixed border="{{false}}" title-class="title" bind:click-left="onClickLeft">
+<!-- <van-nav-bar title="古树帮" custom-class="navBar" fixed border="{{false}}" title-class="title" bind:click-left="onClickLeft">
   <van-icon color="#fff" size="32rpx" name="arrow-left" slot="left" />
 </van-nav-bar> -->
 <view class="back">
@@ -34,8 +34,8 @@
     <!-- <van-cell icon="/assets/protocol.svg" is-link title="法律条文与隐私协议" link-type="navigateTo" url="/pages/protocol/index" /> -->
     <!-- 亲亲和和项目的 -->
     <!-- <van-cell is-link title="二维码视频浏览记录" data-url="/pages/qinqinhehe/myBrowse/index" bindtap="pageTo" /> -->
-    <van-cell is-link title="修改农场信息" wx:if="{{is_boss==1}}" data-url="/pages/merchant/index?is_edit=1" bindtap="pageTo" />
-    <van-cell is-link title="申请农场" wx:else data-url="/pages/merchant/index" bindtap="pageTo" />
+    <van-cell is-link title="修改公司信息" wx:if="{{is_boss==1}}" data-url="/pages/merchant/index?is_edit=1" bindtap="pageTo" />
+    <van-cell is-link title="申请公司" wx:else data-url="/pages/merchant/index" bindtap="pageTo" />
     <van-cell is-link title="审批公司" wx:if="{{identity == 1}}" data-url="/pages/qinqinhehe/companyApprove/index" bindtap="pageTo" />
     <van-cell is-link title="申请角色" wx:if="{{identity == 0}}" data-url="/pages/huiyibang/addRole/index?from=user" bindtap="pageTo" />
     <van-cell is-link title="物流站点记录" data-url="/pages/huiyibang/farm/index" bindtap="pageTo" />
