@@ -21,7 +21,8 @@ import {
   createCodeLogisticsRecord,
   createParentTypeCode,
   createRelationByTypeId,
-  createCodeSceneVide
+  createCodeSceneVide,
+  getLogisticsRecordList
 } from '../../../api/user.js'
 import {
   show_user_company_id,
@@ -37,6 +38,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    latitude:0,
+    longitude:0,
+    treeName:"",//输入的树名
     back_img: '',
     array: [],
     index: 0,
@@ -61,6 +65,7 @@ Page({
     page1: 1,
     show1: false,
     show2: false,
+    show3:false,//绑定古树的信息填写框
     is_checked: false,
     project_list: [],
     new_type_id: '',//选择的项目id
@@ -163,6 +168,47 @@ Page({
     this.setData({
       videoLinks: [{name: '视频1',videoLink: ''}],
       show2: false
+    })
+  },
+  onClose3(){
+    this.setData({
+      show3: false
+    })
+  },
+  inputTreeName(e){
+    this.setData({
+      treeName:e.detail.value
+    })
+  },
+  scanTree(){
+    let that = this;
+    wx.scanCode({
+      success(res) {
+        console.log('扫码返回的参数'+res.result);
+        let data = res.result.replace("https://c.3p3.top?data=","");
+        let codeNumber = data.split(',')[2].split('=')[1];
+        createCodeLogisticsRecord({
+          codeNumber : codeNumber,
+          remark : that.data.treeName,
+          longitude : that.data.longitude,
+          latitude : that.data.latitude
+        })
+        wx.showModal({
+          cancelColor: 'false',
+          title:"提示",
+          content:"绑定成功"
+        })
+        that.setData({
+          show3:false
+        })
+      },
+      fail(res){
+        wx.showModal({
+          cancelColor: 'false',
+          title:"提示",
+          content:"fail"
+        })
+      }
     })
   },
   editVideo(){
@@ -327,21 +373,22 @@ Page({
           title: '查看公司角色申请',
           icon: '/assets/hyb/hyb1.png'
         },
-        // {
-        //   title: '会议桌位管理',
-        //   icon: '/assets/hyb/hyb8.png'
-        // },
-      // {
-      //   title: '登记信息管理',
-      //   icon: '/assets/hyb/hyb9.png'
-      // },
+        
       {
         title: '视频权益列表',
         icon: '/assets/hyb/hyb4.png'
       },{
         title: '权益接收',
         icon: '/assets/hyb/hyb5.png'
-      }
+      },
+      {
+        title: '绑定古树',
+        icon: '/assets/hyb/hyb11.png'
+      },
+    {
+      title: '采集树叶',
+      icon: '/assets/hyb/hyb11.png'
+    },
       // ,{
       //   title: '代金券管理',
       //   icon: '/assets/hyb/hyb15.png'
@@ -818,7 +865,7 @@ Page({
     }else if(this.data.room_identity == 2){
       // 公司经理
       if(click_idx == 0){
-        // 节目进程管理
+      //   // 节目进程管理
       //   wx.navigateTo({
       //     url: '/pages/huiyibang/menu/index?room_id='+this.data.room_id
       //   })
@@ -827,13 +874,8 @@ Page({
         wx.navigateTo({
           url: '/pages/huiyibang/roleList/index?type=1',
         })
-      }else if(click_idx == 1){
-        // 会议桌位管理
-      //   wx.navigateTo({
-      //     url: '/pages/huiyibang/table/index'
-      //   })
-      // }
-      // else if(click_idx == 2){
+      }
+      else if(click_idx == 1){
         // 视频权益列表
         wx.navigateTo({
           url: '/pages/qinqinhehe/videoInterests/index?type=2'
@@ -844,11 +886,72 @@ Page({
         this.setData({
           show: true
         })
-      }else{
-        // 代金券管理
-        // wx.navigateTo({
-        //   url: '/pages/promotion/index'
-        // })
+      }else if(click_idx == 3){
+        // 绑定古树
+        console.log("绑定古树")
+        this.setData({
+          show3 : true
+        })
+        var that = this;
+        wx.getLocation({
+          type: 'gcj02',
+          isHighAccuracy: true,
+          success (res) {
+            console.log(res.latitude,res.longitude)
+            that.setData({
+              latitude: res.latitude,
+              longitude: res.longitude
+            })
+            console.log(typeof(that.data.latitude) + ";" + that.data.longitude)
+            console.log(that.data.treeName)
+          },
+          fail: function(){
+            that.setData({
+              latitude: 39.909729,
+              longitude: 116.398419
+            })
+          }
+        })
+        
+      }else if(click_idx == 4){
+        // 采集树叶
+        var that = this;
+        wx.getLocation({
+          type: 'gcj02',
+          isHighAccuracy: true,
+          success (res) {
+            console.log(res.latitude,res.longitude)
+            that.setData({
+              latitude: res.latitude,
+              longitude: res.longitude
+            })
+            //获取当前经纬度以后再扫码
+            wx.scanCode({
+              success(res){
+                let data = res.result.replace("https://c.3p3.top?data=","");
+                let codeNumber = data.split(',')[2].split('=')[1];
+                getLogisticsRecordList({
+                  couponId:codeNumber,
+                  userId: wx.getStorageSync('userInfo').unionId
+                }).then((ress)=>{
+                  console.log("ress.data:" + JSON.stringify(ress.data))
+                })
+                wx.showModal({
+                  title: '提示',
+                  content: '采集成功',
+                  showCancel: false
+                })
+              }
+            })
+          },
+          fail: function(){
+            that.setData({
+              latitude: 39.909729,
+              longitude: 116.398419
+            })
+          }
+        })
+        
       }
     }else if(this.data.room_identity == 3){
       // 代理人

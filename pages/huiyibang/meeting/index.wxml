@@ -61,6 +61,20 @@
       </view>
     </scroll-view>
   </van-popup>
+  <!-- 绑定古树 -->
+  <van-popup show="{{ show3 }}" bind:close="onClose3" position="bottom">
+    <view class="project_header">
+      <text class="p_cancel" bindtap="onClose3">取消</text>
+      <view class="p_txt">绑定古树</view>
+      <text class="p_confirm" bindtap="" bindtap="scanTree">确定</text>
+    </view>
+    <view class="project_content">
+      <view class="tree_name">
+        <text>古树名称:</text>
+        <input type="text" placeholder="请输入古树名称" focus="true" value="" bindinput="inputTreeName"></input>
+      </view>
+    </view>
+  </van-popup>
   <!-- <van-popup show="{{ userinfo_show }}" bind:close="onClose">
     <view class="personInfo_box">
       <view class="personTitle">嘉宾信息</view>

@@ -23,6 +23,7 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -36,12 +37,11 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "useApiHostProcess": false
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.10.0",
-  "appid": "wx4e6f6f1a956bdbc9",
+  "appid": "wx2ff3aa4cff2940cc",
   "projectname": "%E5%8F%A4%E6%A0%91%E5%B8%AE",
   "debugOptions": {
     "hidedInDevtools": []
@@ -50,17 +50,10 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
       "list": []
     },
     "gamePlugin": {
@@ -72,8 +65,14 @@
           "id": -1,
           "name": "pages/userInfo/index",
           "pathName": "pages/userInfo/index",
-          "scene": null,
-          "query": ""
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/huiyibang/meeting/index",
+          "pathName": "pages/huiyibang/meeting/index",
+          "query": "",
+          "scene": null
         },
         {
           "name": "pages/huiyibang/meeting/index",

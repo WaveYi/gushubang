@@ -1,4 +1,7 @@
 /* pages/huiyibang/meeting/index.wxss */
+.tree_name{
+  height: 100rpx;
+}
 .back_img{
   position: absolute;
   left: 0;
