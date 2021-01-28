@@ -191,15 +191,19 @@ Page({
           codeNumber : codeNumber,
           remark : that.data.treeName,
           longitude : that.data.longitude,
-          latitude : that.data.latitude
-        })
-        wx.showModal({
-          cancelColor: 'false',
-          title:"提示",
-          content:"绑定成功"
-        })
-        that.setData({
-          show3:false
+          latitude : that.data.latitude,
+          type: 0
+        }).then((res)=>{
+          if(res.code == 200){
+            wx.showModal({
+              cancelColor: 'false',
+              title:"提示",
+              content:"绑定成功"
+            })
+            that.setData({
+              show3:false
+            })
+          }
         })
       },
       fail(res){
@@ -1164,7 +1168,8 @@ Page({
     createCodeLogisticsRecord({
       codeNumber: codeNumber, //this.data.couponId
       remark: wx.getStorageSync('remark'),
-      userId: wx.getStorageSync('userInfo').unionId
+      userId: wx.getStorageSync('userInfo').unionId,
+      type: 1
     }).then((ress)=>{
       if(ress.code == 200){
         if(this.data.log_identity == 2){
